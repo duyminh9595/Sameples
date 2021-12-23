@@ -71,7 +71,7 @@ queryInstalledChaincodethayson() {
 approveChaincodeBythayson() {
     setEnvForthayson
     print Green "========== Approve Installed Chaincode by Peer0 thayson =========="
-    peer lifecycle chaincode approveformyorg -o 34.123.2.14:7050 --ordererTLSHostnameOverride orderer.supplychain.com --tls --cafile ${ORDERER_CA} --channelID supplychain-channel --name ${CHAINCODE_NAME} --version ${CHAINCODE_VERSION} --package-id ${PACKAGE_ID} --sequence 1 --init-required
+    peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.supplychain.com --tls --cafile ${ORDERER_CA} --channelID supplychain-channel --name ${CHAINCODE_NAME} --version ${CHAINCODE_VERSION} --package-id ${PACKAGE_ID} --sequence 1 --init-required
     print Green "========== Approve Installed Chaincode Successful by Peer0 thayson =========="
     echo ""
 }
@@ -102,7 +102,7 @@ approveChaincodeBycohuong() {
 checkCommitReadynessForthayson() {
     setEnvForthayson
     print Green "========== Check Commit Readiness of Installed Chaincode on Peer0 thayson =========="
-    peer lifecycle chaincode checkcommitreadiness -o 34.123.2.14:7050 --channelID ${CHANNEL_NAME} --tls --cafile ${ORDERER_CA} --name ${CHAINCODE_NAME} --version ${CHAINCODE_VERSION} --sequence 1 --output json --init-required
+    peer lifecycle chaincode checkcommitreadiness -o localhost:7050 --channelID ${CHANNEL_NAME} --tls --cafile ${ORDERER_CA} --name ${CHAINCODE_NAME} --version ${CHAINCODE_VERSION} --sequence 1 --output json --init-required
     print Green "========== Check Commit Readiness of Installed Chaincode Successful on Peer0 thayson =========="
     echo ""
 }

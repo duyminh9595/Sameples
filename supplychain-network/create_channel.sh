@@ -46,7 +46,7 @@ createChannel() {
 
     print Green "========== Creating Channel =========="
     echo ""
-    peer channel create -o 34.123.2.14:7050 -c $CHANNEL_NAME \
+    peer channel create -o localhost:7050 -c $CHANNEL_NAME \
     --ordererTLSHostnameOverride orderer.supplychain.com \
     -f ./channel-artifacts/$CHANNEL_NAME.tx --outputBlock \
     ./channel-artifacts/${CHANNEL_NAME}.block \
@@ -83,7 +83,7 @@ joinChannel() {
 updateAnchorPeers() {
     setEnvForPeer0thayson
     print Green "========== Updating Anchor Peer of Peer0thayson =========="
-    peer channel update -o 34.123.2.14:7050 --ordererTLSHostnameOverride orderer.supplychain.com -c $CHANNEL_NAME -f ./channel-artifacts/${CORE_PEER_LOCALMSPID}Anchor.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.supplychain.com -c $CHANNEL_NAME -f ./channel-artifacts/${CORE_PEER_LOCALMSPID}Anchor.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     echo ""
 
     setEnvForPeer0cohuong
